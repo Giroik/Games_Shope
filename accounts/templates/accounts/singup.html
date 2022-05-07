@@ -1,0 +1,15 @@
+{%extends 'Shablon.html'%}
+{%block title%}
+    Sing Up
+{%endblock%}
+{%block main%}
+    <h1> Регистрация на сайт</h1>
+    <h2>для входа, используйте форму:</h2>
+    <div>
+        <form method="post">
+            {%csrf_token%} <!-- проверка подленности формы -->
+            {{form.as_p}}<!-- даёт саму физическую форму-->
+            <p><input type="submit" value="singup"></p>
+        </form>
+    </div>
+{%endblock%}

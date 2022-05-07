@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body id="bod">
+    <header>
+        <h1>Best game shop in the world</h1>
+        <div>
+
+            {% if user.is_authenticated %}
+                <a href="{%url 'logout'%}"><button>Logout</button></a>
+            <a href="{%url 'password_change'%}"><button>Forgot password</button></a>
+            {%else%}
+                <a href="{% url 'singup'%}"><button>Sing Up</button></a>
+                <a href="{%url 'login'%}"><button>Login</button></a><br>
+                <a href="{%url 'password_change'%}"><button>Forgot password</button></a>
+            {%endif%}
+
+
+        </div>
+
+    </header>
+    <main class="main">
+        {%block main%}{%endblock%}
+    </main>
+
+</body>
+</html>

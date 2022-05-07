@@ -1,0 +1,20 @@
+{%extends 'Shablon.html'%}
+{%load static%}
+{%block main%}
+    {%for game in game_list%}
+        <div class="game">
+            <h2><a href="{{game.get_absolut_url}}">{{game.title}}<a/></h2>
+            <p class="description">{{game.description}}</p>
+            <p class="owner">Owner: {{game.owner}}</p>
+            <p class="price">Price: {{game.Price}}</p>
+            <p class="date">Game was created: {{game.created}}, and finel time was uppdated:{{game.updated}}</p>
+            {%if game.img%}
+                <img class="gameImage" src="{{game.img.url}}">
+            {%else%}
+                <img class="gameImage" src="{% static 'images/games.png'%}">
+            {%endif%}
+
+
+        </div>
+    {%endfor%}
+{%endblock%}
